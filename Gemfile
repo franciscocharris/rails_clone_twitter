@@ -28,7 +28,12 @@ gem 'jbuilder', '~> 2.7'
 gem 'simple_form', '~> 5.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# send email
 gem 'mail'
+gem 'net-smtp', require: false
+gem 'net-pop', '~> 0.1.1', require: false
+gem 'net-imap', '~> 0.2.3', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
