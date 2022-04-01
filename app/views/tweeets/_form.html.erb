@@ -1,7 +1,7 @@
 <div class="media">
   <div class="media-left mr-2">
     <a class="avatar avatar-online" href="javascript:void(0)">
-      <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+      <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
       <i></i>
     </a>
   </div>

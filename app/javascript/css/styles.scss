@@ -21,11 +21,14 @@ body{
 .nav-link{
   color: #007bff!important;
   background-color: white;
-  /* transition: all .3s ease-in-out; */
+  margin-right: .8rem;
+  transition: all .3s ease-in-out; 
 }
 
 .nav-link:hover{
+  -webkit-transform: scale(1.1);
   color: white!important;
+  background-color: #007bff;
 }
 
 .bg-dark{

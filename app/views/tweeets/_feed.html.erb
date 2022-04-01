@@ -9,7 +9,11 @@
       </div>
       <a href="javascript:void(0)" class="btn btn-info btn-sm pull-right waves-effect waves-light">Tweet</a> %>
 
-      <%= render 'form' %>
+      
+      <% if user_signed_in? %>
+        <%= render 'form' %>
+      <% end %>
+      
       <div class="clearfix"></div>
       <hr class="margin-bottom-10">
       <ul class="list-group list-group-dividered list-group-full">
@@ -17,28 +21,34 @@
         
           <li class="list-group-item">
             <div class="media">
-              <div class="media-left">
+              <div class="media-left mr-3">
                 <a class="avatar avatar-online" href="javascript:void(0)">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+                  <%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
                   <i></i>
                 </a>
               </div>
               <div class="media-body">
                 <small class="text-muted float-right">Just now</small>
-                <h4 class="h6">@Ramon Dunn</h4>
+                <h6 style="font-size: .7rem;" class='text-muted'>@<%= tweeet.user.username %></h6>
                 <div><%= tweeet.Tweeet %>.</div>
                 <div class="d-flex justify-content-around w-25 my-1">
+                  
                   <%= link_to tweeet do %>
                     <i class="fa-solid fa-link"></i>
                   <% end %>
 
-                  <%= link_to edit_tweeet_path(tweeet) do %>
-                    <i class="fa-solid fa-pencil"></i>
+                  <% if user_signed_in? %>
+                    <%= link_to edit_tweeet_path(tweeet) do %>
+                      <i class="fa-solid fa-pencil"></i>
+                    <% end %>
+                    
+                    <%= link_to tweeet, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                      <i class="fa-solid fa-trash-can"></i>
+                    <% end %>
+                    
                   <% end %>
                   
-                  <%= link_to tweeet, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                    <i class="fa-solid fa-trash-can"></i>
-                  <% end %>
+
 
                 </div>
               </div>
